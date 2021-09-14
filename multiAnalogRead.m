@@ -1,15 +1,15 @@
 % -- inputs for this script -- %
 clc
 clear
-numTrials                           = 1;
+numTrials                           = 10;
 trialTime                           = 10; %in sec
 interTrialInterval                  = 3; %in sec
 
 totalTrialTime                      = trialTime + interTrialInterval;
 totalTime                           = totalTrialTime*numTrials + 3; %in sec
 daqType                             = 'ni';
-deviceName                          = 'Dev4'; %changed from Dev1
-channels                            = 0:15; 
+deviceName                          = 'Dev3'; %changed from Dev1
+channels                            = 0:15; %changed to add odor AIs (also changed to 14 w/o final valve)
 channelNames                        = {'PID',... %ai0
                                         'motion sensor',... %ai1
                                         'camera trigger',... %ai2
@@ -18,7 +18,7 @@ channelNames                        = {'PID',... %ai0
                                         'start-odor-end',... %ai5
                                         'camera analog',... %ai6
                                         'water',... %ai7
-                                        'final valve',... %ai8 
+                                        'pseduo valve - ignore',... %ai8   
                                         'blue-odor',... %ai9
                                         'red-odor',... %ai10
                                         'green-odor',... %ai11
@@ -27,13 +27,14 @@ channelNames                        = {'PID',... %ai0
                                         'yellow-odor',... %ai14
                                         'odorless-oil'}; %ai15
                                     
+                                    
 camChannelName                      = strcat(deviceName,'_ai2'); % camera real analog
 fauxCamChannelName                  = strcat(deviceName,'_ai6'); % camera trigger analog
 fauxCamChannelOnThreshold           = 4;
 
 startStopTrialChannelName           = strcat(deviceName,'_ai5');
 analogStartSignalChannelThreshold   = 2; 
-maxSamplingFrequency                = 160000;   %<----------change based on number of channels (16 channels = 16000 ; 5 channels = 5000)  
+maxSamplingFrequency                = 160000;   % <----------change based on number of channels (16 channels = 16000 ; 5 channels = 5000)  
 pathName                            = uigetdir;
 hash                                = '\';
 fileNameExtension                   = '_analogData';
@@ -113,4 +114,3 @@ fileName = strcat(pathName,hash,dateTimeString);
 saveas(gcf,strcat(fileName,fileNameExtension,'.png')) 
 save(strcat(fileName,fileNameExtension,'.mat')) % saving this for safety - slows down code a bit
 writetimetable(data,strcat(fileName,fileNameExtension,'.csv')) % saving this for safety - slows down code a bit
-
