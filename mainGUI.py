@@ -7,11 +7,8 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import ctypes
-import platform
 
 class Ui_mousebehaviorstartwindow(object):
-        
     def setupUi(self, mousebehaviorstartwindow):
         mousebehaviorstartwindow.setObjectName("mousebehaviorstartwindow")
         mousebehaviorstartwindow.resize(988, 975)
@@ -121,16 +118,16 @@ class Ui_mousebehaviorstartwindow(object):
         self.mineralOilPortLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.mineralOilPortLabel.setObjectName("mineralOilPortLabel")
         self.verticalLayout_6.addWidget(self.mineralOilPortLabel)
-        self.finalSolenoidsPortDeltaDelayDurationLabel = QtWidgets.QLabel(self.verticalLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Gill Sans MT")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.finalSolenoidsPortDeltaDelayDurationLabel.setFont(font)
-        self.finalSolenoidsPortDeltaDelayDurationLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.finalSolenoidsPortDeltaDelayDurationLabel.setObjectName("finalSolenoidsPortDeltaDelayDurationLabel")
-        self.verticalLayout_6.addWidget(self.finalSolenoidsPortDeltaDelayDurationLabel)
+        # self.finalSolenoidsPortDeltaDelayDurationLabel = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        # font = QtGui.QFont()
+        # font.setFamily("Gill Sans MT")
+        # font.setPointSize(12)
+        # font.setBold(False)
+        # font.setWeight(50)
+        # self.finalSolenoidsPortDeltaDelayDurationLabel.setFont(font)
+        # self.finalSolenoidsPortDeltaDelayDurationLabel.setAlignment(QtCore.Qt.AlignCenter)
+        # self.finalSolenoidsPortDeltaDelayDurationLabel.setObjectName("finalSolenoidsPortDeltaDelayDurationLabel")
+        # self.verticalLayout_6.addWidget(self.finalSolenoidsPortDeltaDelayDurationLabel)
         self.odorTrialStructurePretrainingLabel = QtWidgets.QLabel(self.verticalLayoutWidget_2)
         font = QtGui.QFont()
         font.setFamily("Gill Sans MT")
@@ -353,10 +350,10 @@ class Ui_mousebehaviorstartwindow(object):
         self.mineralOilPortTextbox.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.mineralOilPortTextbox.setObjectName("mineralOilPortTextbox")
         self.verticalLayout_7.addWidget(self.mineralOilPortTextbox)
-        self.finalSolenoidsPortDeltaDelayDurationTextbox = QtWidgets.QTextEdit(self.verticalLayoutWidget_3)
-        self.finalSolenoidsPortDeltaDelayDurationTextbox.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.finalSolenoidsPortDeltaDelayDurationTextbox.setObjectName("finalSolenoidsPortDeltaDelayDurationTextbox")
-        self.verticalLayout_7.addWidget(self.finalSolenoidsPortDeltaDelayDurationTextbox)
+        # self.finalSolenoidsPortDeltaDelayDurationTextbox = QtWidgets.QTextEdit(self.verticalLayoutWidget_3)
+        # self.finalSolenoidsPortDeltaDelayDurationTextbox.setLayoutDirection(QtCore.Qt.LeftToRight)
+        # self.finalSolenoidsPortDeltaDelayDurationTextbox.setObjectName("finalSolenoidsPortDeltaDelayDurationTextbox")
+        # self.verticalLayout_7.addWidget(self.finalSolenoidsPortDeltaDelayDurationTextbox)
         self.odorTrialStructureTextbox = QtWidgets.QTextEdit(self.verticalLayoutWidget_3)
         self.odorTrialStructureTextbox.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.odorTrialStructureTextbox.setObjectName("odorTrialStructureTextbox")
@@ -471,7 +468,6 @@ class Ui_mousebehaviorstartwindow(object):
 
         self.retranslateUi(mousebehaviorstartwindow)
         QtCore.QMetaObject.connectSlotsByName(mousebehaviorstartwindow)
-        
 
     def retranslateUi(self, mousebehaviorstartwindow):
         _translate = QtCore.QCoreApplication.translate
@@ -481,12 +477,12 @@ class Ui_mousebehaviorstartwindow(object):
         self.mouseNumLabel.setText(_translate("mousebehaviorstartwindow", "mouse #"))
         self.numTrialsLabel.setText(_translate("mousebehaviorstartwindow", "#trials"))
         self.trialTimeLabel.setText(_translate("mousebehaviorstartwindow", "trial duration (s)"))
-        self.laserBinaryLabel.setText(_translate("mousebehaviorstartwindow", "laser (y=1,n=0)"))
+        self.laserBinaryLabel.setText(_translate("mousebehaviorstartwindow", "laser?"))
         self.laserPortLabel.setText(_translate("mousebehaviorstartwindow", "laser port"))
-        self.laserTrialStructureLabel.setText(_translate("mousebehaviorstartwindow", "del(s),dur(s),freq,duty cyc"))
-        self.odorBinaryLabel.setText(_translate("mousebehaviorstartwindow", "odor (y=1,n=0)"))
-        self.mineralOilPortLabel.setText(_translate("mousebehaviorstartwindow", "odorless oil port"))
-        self.finalSolenoidsPortDeltaDelayDurationLabel.setText(_translate("mousebehaviorstartwindow", "final valves port, deltaDelay (s), dur (s)"))
+        self.laserTrialStructureLabel.setText(_translate("mousebehaviorstartwindow", "laser delay (s), dur (s), freq, duty cycle"))
+        self.odorBinaryLabel.setText(_translate("mousebehaviorstartwindow", "odor?"))
+        self.mineralOilPortLabel.setText(_translate("mousebehaviorstartwindow", "control mineral oil port"))
+        # self.finalSolenoidsPortDeltaDelayDurationLabel.setText(_translate("mousebehaviorstartwindow", "final valves port, deltaDelay (s), dur (s)"))
         self.odorTrialStructurePretrainingLabel.setText(_translate("mousebehaviorstartwindow", "odor delay (s), dur (s)"))
         self.odorNamePretrainingLabel.setText(_translate("mousebehaviorstartwindow", "odor name (pretraining)"))
         self.odorPortPretrainingLabel.setText(_translate("mousebehaviorstartwindow", "odor port (pretraining)"))
@@ -494,15 +490,15 @@ class Ui_mousebehaviorstartwindow(object):
         self.rewardedOdorPortsLabel.setText(_translate("mousebehaviorstartwindow", "rewarded odor ports (disc)"))
         self.unrewardedOdorNamesLabel.setText(_translate("mousebehaviorstartwindow", "unrewarded odor names (disc)"))
         self.unrewardedOdorPortsLabel.setText(_translate("mousebehaviorstartwindow", "unrewarded odor ports (disc)"))
-        self.waterBinaryLabel.setText(_translate("mousebehaviorstartwindow", "water (y=1,n=0)"))
+        self.waterBinaryLabel.setText(_translate("mousebehaviorstartwindow", "water?"))
         self.waterPortLabel.setText(_translate("mousebehaviorstartwindow", "water port"))
         self.waterTrialStructureLabel.setText(_translate("mousebehaviorstartwindow", "water delay (s), dur (s)"))
-        self.cameraBinaryLabel.setText(_translate("mousebehaviorstartwindow", "camera (y=1,n=0)"))
+        self.cameraBinaryLabel.setText(_translate("mousebehaviorstartwindow", "camera?"))
         self.cameraTriggerPortLabel.setText(_translate("mousebehaviorstartwindow", "camera trigger port"))
         self.cameraTrialStructureLabel.setText(_translate("mousebehaviorstartwindow", "camera fps, duty cycle"))
-        self.twoPhotonTriggerBinaryLabel.setText(_translate("mousebehaviorstartwindow", "2P + cam trig (y=1,n=0)"))
+        self.twoPhotonTriggerBinaryLabel.setText(_translate("mousebehaviorstartwindow", "2P + camera trigger?"))
         self.twoPhotonTriggerPortLabel.setText(_translate("mousebehaviorstartwindow", "2P + camera trigger port"))
-        self.twoPhotonTrialStructureLabel.setText(_translate("mousebehaviorstartwindow", "2P trig + cam freq, duty cyc"))
+        self.twoPhotonTrialStructureLabel.setText(_translate("mousebehaviorstartwindow", "2P trigger + camera freq, duty cycle"))
         self.interTrialIntervalLabel.setText(_translate("mousebehaviorstartwindow", "cycle ITI (s)"))
         self.outputFolderTextbox.setHtml(_translate("mousebehaviorstartwindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -554,11 +550,11 @@ class Ui_mousebehaviorstartwindow(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">5</p></body></html>"))
-        self.finalSolenoidsPortDeltaDelayDurationTextbox.setHtml(_translate("mousebehaviorstartwindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3,0.5,2</p></body></html>"))
+#         self.finalSolenoidsPortDeltaDelayDurationTextbox.setHtml(_translate("mousebehaviorstartwindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+# "p, li { white-space: pre-wrap; }\n"
+# "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+# "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3,0.5,2</p></body></html>"))
         self.odorTrialStructureTextbox.setHtml(_translate("mousebehaviorstartwindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -652,8 +648,6 @@ class Ui_mousebehaviorstartwindow(object):
         self.resetDAQButton.setText(_translate("mousebehaviorstartwindow", "Reset DAQ"))
 
 
-
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -662,4 +656,3 @@ if __name__ == "__main__":
     ui.setupUi(mousebehaviorstartwindow)
     mousebehaviorstartwindow.show()
     sys.exit(app.exec_())
-

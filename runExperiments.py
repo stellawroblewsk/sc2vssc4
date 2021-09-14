@@ -31,7 +31,6 @@ import pickle
 import threading
 import os
 import sys
-import platform
 
 class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
     def __init__(self, mousebehaviorstartwindow,parent=None):
@@ -68,13 +67,13 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
         self.trialStopAnalogVoltageSig      = 1 # keep this fixed and don't use this value for any odor signature - we use it in our code to break session into individual trials
 
         ## final solenoids voltage details
-        self.finalSolenoidsAnalogVoltage    = 4
+        #self.finalSolenoidsAnalogVoltage    = 4
        
         # record 2P and camera during ITI?
         self.recordDuringITI = True # (set to False if not recording 2P and camera during ITI)
     
         # DAQ info
-        self.digitalPortsDeviceName     = 'Dev2'
+        self.digitalPortsDeviceName     = 'Dev9'
         self.moreThanOneMegaPortsBinary = True # set to True if using 2 ports in the DAQ (eg : port0/lines0:7 and port1/lines0:3 total = 12 ports) - the GUI accepts a line number from 0-11 but I convert lines 8-11 to 'port1/lines0:3') - note I refer to the NI-DAQ ports as 'megaports' and lines as 'ports' throughout my code
         self.portZeroMax                = 7 # highest line number for port 0
         self.portZeroInt                = 0 # integer name of port 0 in device
@@ -100,7 +99,7 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
                                  self.laserTrialStructureTextbox,
                                  self.odorBinaryTextbox,
                                  self.mineralOilPortTextbox,
-                                 self.finalSolenoidsPortDeltaDelayDurationTextbox,
+                                 #self.finalSolenoidsPortDeltaDelayDurationTextbox,
                                  self.odorTrialStructureTextbox,
                                  self.odorNamePretrainingTextbox,
                                  self.odorPortPretrainingTextbox,
@@ -130,7 +129,7 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
                         'self.laserTrialStructurex',
                         'self.odorBinary',
                         'self.mineralOilPort'
-                        'self.finalSolenoidsPortDeltaDelay',
+                        #'self.finalSolenoidsPortDeltaDelay',
                         'self.odorTrialStructure',
                         'self.odorNamePretraining',
                         'self.odorPortPretraining',
@@ -154,8 +153,8 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
                         'self.laserDutyCycle',                        
                         'self.odorDelay',   
                         'self.odorDuration',
-                        'self.finalSolenoidsPort',
-                        'self.finalSolenoidsDeltaDelay',                       
+                        #'self.finalSolenoidsPort',
+                        #'self.finalSolenoidsDeltaDelay',                       
                         'self.waterDelay',    
                         'self.waterDuration',
                         'self.camerafps',
@@ -210,10 +209,10 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
             del self.mineralOilPort
         except:
             pass
-        try:
-            del self.finalSolenoidsPortDeltaDelay
-        except:
-            pass
+      #  try:
+      #      del self.finalSolenoidsPortDeltaDelay
+      #  except:
+      #      pass
         try:
             del self.odorTrialStructur
         except:
@@ -298,14 +297,14 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
             del self.odorDuration
         except:
             pass             
-        try:
-            del self.finalSolenoidsPort
-        except:
-            pass             
-        try:
-            del self.finalSolenoidsDeltaDelay
-        except:
-            pass             
+        #try:
+          #  del self.finalSolenoidsPort
+       # except:
+         #   pass             
+       # try:
+        #    del self.finalSolenoidsDeltaDelay
+        #except:
+        #    pass             
         try:
             del self.waterDelay
         except:
@@ -339,11 +338,6 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
         #     if var in globals():
         #         del globals()[var] 
    
-    def make_dpi_aware():
-       if int(platform.release()) >= 8 :
-           ctypes.windll.shcore.SetProcessDpiAwareness(True)
-        
-
     # function for choosing output folder
     def openFile(self):
         datafile = QtWidgets.QFileDialog.getExistingDirectory()
@@ -368,7 +362,7 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
         self.laserTrialStructureTextbox.setText('4.5,4,0,0')
         self.odorBinaryTextbox.setText('1')
         self.mineralOilPortTextbox.setText('5')
-        self.finalSolenoidsPortDeltaDelayDurationTextbox.setText('3,0.5,2')
+        #self.finalSolenoidsPortDeltaDelayDurationTextbox.setText('3,0.5,2')
         self.odorTrialStructureTextbox.setText('2,2')
         self.odorNamePretrainingTextbox.setText('Pinene')
         self.odorPortPretrainingTextbox.setText('6')
@@ -468,22 +462,22 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
                 self.mineralOilPort                         = int(self.mineralOilPortTextbox.toPlainText())
             except:
                 pass
-            try:
-                self.finalSolenoidsPortDeltaDelayDuration   = [float(i) for i in self.finalSolenoidsPortDeltaDelayDurationTextbox.toPlainText().split(',')]
-            except:
-                pass
-            try:
-                self.finalSolenoidsPort                     = int(self.finalSolenoidsPortDeltaDelayDuration[0])
-            except:
-                pass
-            try:
-                self.finalSolenoidsDeltaDelay               = self.finalSolenoidsPortDeltaDelayDuration[1]
-            except:
-                pass
-            try:
-                self.finalSolenoidsDuration                 = self.finalSolenoidsPortDeltaDelayDuration[2]
-            except:
-                pass
+           # try:
+            #    self.finalSolenoidsPortDeltaDelayDuration   = [float(i) for i in self.finalSolenoidsPortDeltaDelayDurationTextbox.toPlainText().split(',')]
+            #except:
+            #    pass
+            #try:
+            #    self.finalSolenoidsPort                     = int(self.finalSolenoidsPortDeltaDelayDuration[0])
+            #except:
+            #    pass
+            #try:
+          #      self.finalSolenoidsDeltaDelay               = self.finalSolenoidsPortDeltaDelayDuration[1]
+            #except:
+            #    pass
+           # try:
+           #     self.finalSolenoidsDuration                 = self.finalSolenoidsPortDeltaDelayDuration[2]
+           # except:
+            #    pass
             
             if self.laserBinary == 1:
                 try:
@@ -661,14 +655,14 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
                               'analogVoltage' : self.odorSigAnalogVoltage
                               },
                           
-                            'finalSol' : {
-                                'stimName' : 'finalSol',
-                                'delay' : self.odorDelay + self.odorDuration + self.finalSolenoidsDeltaDelay,
-                                'duration' : self.finalSolenoidsDuration,
-                                'trialDuration' : self.trialDuration,
-                                'analogVoltage' : self.finalSolenoidsAnalogVoltage
-                                }
-                           },
+                          # 'finalSol' : {
+                          #     'stimName' : 'finalSol',
+                          #     'delay' : self.odorDelay + self.odorDuration + self.finalSolenoidsDeltaDelay,
+                          #     'duration' : self.finalSolenoidsDuration,
+                          #     'trialDuration' : self.trialDuration,
+                          #     'analogVoltage' : self.finalSolenoidsAnalogVoltage
+                          #     }
+                          },
                       
                       'portName' : self.startEndStimOdorPortName,
                       'analogMinVal' : self.startEndStimOdorPortAnalogMinVal,
@@ -698,15 +692,15 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
                         'portName' : self.mineralOilPort
                                 },
                     
-                     'finalSolenoidsPort':{
-                         'stimName':'finalSolenoids',
-                         'delay': self.odorDelay + self.odorDuration + self.finalSolenoidsDeltaDelay,
-                         'duration':  self.finalSolenoidsDuration,
-                         'frequency': [],
-                         'dutyCycle':[],
-                         'deviceName' : self.digitalPortsDeviceName,
-                         'portName' : self.finalSolenoidsPort  
-                             }
+                    # 'finalSolenoidsPort':{
+                    #     'stimName':'finalSolenoids',
+                    #     'delay': self.odorDelay + self.odorDuration + self.finalSolenoidsDeltaDelay,
+                    #     'duration':  self.finalSolenoidsDuration,
+                    #     'frequency': [],
+                    #     'dutyCycle':[],
+                    #     'deviceName' : self.digitalPortsDeviceName,
+                    #     'portName' : self.finalSolenoidsPort  
+                    #         }
                     })
            
             else:
@@ -920,7 +914,7 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
         self.odorPortPretrainingTextbox.clear()
         self.odorPortPretrainingTextbox.setAlignment(QtCore.Qt.AlignCenter)
         self.gatherInputs()
-                    
+                
         if self.sanityCheck == True:                              
             ## determine 'real' trial duration (recording camera and 2P during ITI or not)
             if self.recordDuringITI == True:
@@ -1041,27 +1035,27 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
                         'portName': self.mineralOilPort
                                 },
                     
-                     'finalSolenoidsPort':{
-                         'stimName':'finalSolenoids',
-                         'delay': self.odorDelay + self.odorDuration + self.finalSolenoidsDeltaDelay,
-                         'duration':  self.finalSolenoidsDuration,
-                         'frequency': [],
-                         'dutyCycle':[],
-                         'deviceName': self.digitalPortsDeviceName,
-                         'portName': self.finalSolenoidsPort  
-                             }
+                    # 'finalSolenoidsPort':{
+                    #     'stimName':'finalSolenoids',
+                    #     'delay': self.odorDelay + self.odorDuration + self.finalSolenoidsDeltaDelay,
+                    #     'duration':  self.finalSolenoidsDuration,
+                    #     'frequency': [],
+                    #     'dutyCycle':[],
+                    #     'deviceName': self.digitalPortsDeviceName,
+                    #     'portName': self.finalSolenoidsPort  
+                    #         }
                     })
     
                 ### add details of odors and final solenoids to digiProxyPort dictionary
-                self.stimDictionary['digiProxyPort']['stimuli']['LEDSig'].update({
-                      'finalSolenoidsPort': {
-                          'stimName':'finalSolenoids',
-                          'delay': self.odorDelay + self.odorDuration + self.finalSolenoidsDeltaDelay,
-                          'duration':  self.finalSolenoidsDuration,
-                          'trialDuration': self.trialDuration,
-                          'analogVoltage' : self.finalSolenoidsAnalogVoltage
-                          }
-                      })
+                # self.stimDictionary['digiProxyPort']['stimuli']['LEDSig'].update({
+                #      'finalSolenoidsPort': {
+                #          'stimName':'finalSolenoids',
+                #          'delay': self.odorDelay + self.odorDuration + self.finalSolenoidsDeltaDelay,
+                #          'duration':  self.finalSolenoidsDuration,
+                #          'trialDuration': self.trialDuration,
+                #          'analogVoltage' : self.finalSolenoidsAnalogVoltage
+                #          }
+                #      })
     
                 self.stimDictionary['digiProxyPort']['stimuli'].update({
                      'odorSig' : {}
@@ -1343,8 +1337,7 @@ class startwindow(QtWidgets.QDialog,Ui_mousebehaviorstartwindow):
             print('Session ended!')
         else:
             pyautogui.alert('Critical inputs missing - try again!', "Achtung!")
-
-        
+            
 # run the main GUI    
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
